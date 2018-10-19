@@ -100,7 +100,7 @@ func run() error {
 func fetchAmis(regions Regions) error {
 	b := surf.NewBrowser()
 
-	if err := b.Open("https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html"); err != nil {
+	if err := b.Open("https://docs.aws.amazon.com/AmazonECS/latest/developerguide/al2ami.html"); err != nil {
 		return err
 	}
 
@@ -221,7 +221,7 @@ func fetchFargate(regions Regions) error {
 		return err
 	}
 
-	rows := b.Find("h1#AWS_Fargate~.table:nth-of-type(2) tr")
+	rows := b.Find("h1#AWS_Fargate~.table:nth-of-type(3) tr")
 
 	if rows.Length() < 1 {
 		return fmt.Errorf("no fargate regions found")
